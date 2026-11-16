@@ -12,8 +12,8 @@ import re5_korean_patch as patch
 
 
 def update():
-    chars = json.loads((ROOT / 'data/menu_charmap.json').read_text())
-    translations = json.loads((ROOT / 'data/menu_ko.json').read_text())
+    chars = json.loads((ROOT / 'data/menu_charmap.json').read_text(encoding='utf-8'))
+    translations = json.loads((ROOT / 'data/menu_ko.json').read_text(encoding='utf-8'))
     target = ROOT / 'data/ko_patch.arc'
     start, entries = patch.read_arc(target.read_bytes(), str(target))
     font = next(zlib.decompress(e[3]) for e in entries if e[0].rstrip(b'\0') == b'etc\\message\\font00_j')

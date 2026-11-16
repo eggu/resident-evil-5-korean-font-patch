@@ -40,7 +40,7 @@ class PatcherTests(unittest.TestCase):
             self.originals[name] = data
 
     def run_patch(self, *args):
-        return subprocess.run([*COMMAND, str(self.game), *args], text=True, capture_output=True,
+        return subprocess.run([*COMMAND, str(self.game), *args], text=True, encoding='utf-8', capture_output=True,
                               env=dict(os.environ, RE5_PATCH_NO_PAUSE='1'), stdin=subprocess.DEVNULL)
 
     def test_font_selection_and_restore(self):

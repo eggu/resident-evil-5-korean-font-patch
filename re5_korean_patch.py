@@ -177,7 +177,7 @@ def main(argv: list[str]) -> None:
         restore(folder)
     else:
         font = args.font or 'malgun'
-        if args.font is None and sys.stdin.isatty():
+        if args.font is None and sys.stdin.isatty() and os.environ.get('RE5_PATCH_NO_PAUSE') != '1':
             print('1. 맑은고딕체 (기본값)  2. 나눔명조체  3. 견명조체')
             choice = input('Font [1/2/3, Enter=1]: ').strip() or '1'
             if choice not in ('1', '2', '3'):
@@ -189,6 +189,8 @@ def main(argv: list[str]) -> None:
 
 
 if __name__ == '__main__':
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
     try:
         main(sys.argv[1:])
         code = 0
