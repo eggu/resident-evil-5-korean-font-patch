@@ -7,7 +7,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [
     'Apply-Windows.bat', 'Apply-macOS.command', 'Restore-Windows.bat', 'apply.sh',
-    're5_korean_patch.py', 're5_korean_patch.ps1', 'README.md', 'README.ko.md',
+    're5_korean_patch.py', 're5_korean_patch.ps1', 'README.md', 'README.en.md',
     'CREDITS.md', 'LICENSE', 'data/ko_patch.arc', 'data/fonts/malgun.arc',
     'data/fonts/kyeon.arc', 'data/fonts/preview.png',
 ]
