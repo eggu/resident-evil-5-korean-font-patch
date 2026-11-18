@@ -6,7 +6,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [
-    'Apply-Windows.bat', 'Apply-macOS.command', 'Restore-Windows.bat', 'apply.sh',
+    'Install-RE5-Korean-Patch-Windows.bat', 'Install-RE5-Korean-Patch-macOS.command', 'Restore-RE5-Korean-Patch-Windows.bat', 'Install-RE5-Korean-Patch.sh',
     're5_korean_patch.py', 're5_korean_patch.ps1', 'README.md', 'README.en.md',
     'CREDITS.md', 'LICENSE', 'data/ko_patch.arc', 'data/fonts/malgun.arc',
     'data/fonts/kyeon.arc', 'data/fonts/preview.png',
@@ -39,5 +39,5 @@ def build(version):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--version', default='1.0.0')
+    parser.add_argument('--version', default='1.0.1')
     build(parser.parse_args().version)

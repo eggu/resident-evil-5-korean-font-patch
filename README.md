@@ -18,9 +18,9 @@
 2. 이 패치 폴더를 게임 폴더(`re5dx9.exe`가 있는 폴더) 안에 복사합니다.
    Steam에서 게임 오른쪽 클릭 → 관리 → 로컬 파일 보기로 게임 폴더를 열 수 있습니다.
 3. 게임을 완전히 종료하고 운영체제에 맞는 파일을 실행합니다.
-   - **Windows**: `Apply-Windows.bat`을 더블클릭
-   - **macOS**: `Apply-macOS.command`를 더블클릭
-   - **Linux / Steam Deck**: 터미널에서 `sh apply.sh`
+   - **Windows**: `Install-RE5-Korean-Patch-Windows.bat`을 더블클릭
+   - **macOS**: `Install-RE5-Korean-Patch-macOS.command`를 더블클릭
+   - **Linux / Steam Deck**: 터미널에서 `sh Install-RE5-Korean-Patch.sh`
 4. 글꼴 선택 화면에서 `1` 맑은고딕체, `2` 나눔명조체, `3` 견명조체 중 하나를 고릅니다. Enter만 누르면 맑은고딕체를 사용합니다.
 5. `Done.`이 나오면 끝입니다. 게임을 실행하면 한글로 나옵니다.
 
@@ -32,12 +32,12 @@
 
 게임을 완전히 종료하고 설치 파일을 다시 실행해 다른 글꼴을 고르면 됩니다. 번역 내용은 동일합니다.
 
-터미널에서는 `sh apply.sh --font malgun "게임 폴더"`처럼 지정할 수 있습니다. 값은 `malgun`(맑은고딕), `nanum`(나눔명조), `kyeon`(견명조)입니다. Windows PowerShell에서는 `-Font malgun -GameFolder "게임 폴더"`를 사용합니다.
+터미널에서는 `sh Install-RE5-Korean-Patch.sh --font malgun "게임 폴더"`처럼 지정할 수 있습니다. 값은 `malgun`(맑은고딕), `nanum`(나눔명조), `kyeon`(견명조)입니다. Windows PowerShell에서는 `-Font malgun -GameFolder "게임 폴더"`를 사용합니다.
 
 ## 되돌리기
 
-- **Windows**: `Restore-Windows.bat`을 더블클릭
-- **macOS / Linux**: 터미널에서 `sh apply.sh --restore`
+- **Windows**: `Restore-RE5-Korean-Patch-Windows.bat`을 더블클릭
+- **macOS / Linux**: 터미널에서 `sh Install-RE5-Korean-Patch.sh --restore`
 - 백업 파일이 없으면 Steam에서 **게임 파일 무결성 확인**을 실행하세요.
 
 패치하기 전 원본은 같은 폴더에 `.orig` 파일로 보관됩니다.
@@ -59,7 +59,7 @@ Python 3.10 이상이 필요하며 추가 패키지는 필요하지 않습니다
 ```sh
 python3 tools/update_menu.py
 python3 -m unittest discover -s tests
-python3 tools/build.py --version 1.0.0
+python3 tools/build.py --version 1.0.1
 ```
 
 ZIP과 SHA256 파일은 `dist/`에 생성됩니다. 메뉴 번역은 `data/menu_ko.json`, 글자와 글꼴 칸의 대응은 `data/menu_charmap.json`에서 수정합니다. 기존 번역 메시지와 글꼴 데이터는 빌드 입력으로 포함되어 있습니다.
